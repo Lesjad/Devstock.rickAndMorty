@@ -1,0 +1,31 @@
+.header {
+    text-align: center;
+}
+
+.listCharHeader {
+    display: inline-block;
+    font-family: fantasy;
+    font-size: x-large;
+}
+
+.charList {
+    display: flex;
+}
+
+.singleChar {
+    display: flex;
+    flex-direction: column;
+}
+
+.singleCharacter {
+    display: flex;
+    background-color: aquamarine;
+    border-style: ridge;
+}
+
+.charDescriptionHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-width: 200px;
+}

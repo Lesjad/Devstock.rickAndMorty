@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Rick & Morty Characters</title>
+        <script type="text/javascript" src="./index.js"></script> 
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Znajdziesz tutaj listę postaci z serialu Rick And Morty</h1>
+        </div>
+        <div class="charsDisplay">
+            <div class="listCharHeader">Lista <div class="listCharHeader" id="charNumber"> </div> postaci</div>
+
+            <div>Sortuj po:</div>
+            <select id="sortType" onchange="sortArr()">
+                <option value="byId">ID</option>
+                <option value="byName">nazwa</option>
+                <option value="byDate">data utworzenia</option>
+                <option value="byGender">płci</option>
+            </select>
+    
+            <div id="navigationBar">filtry:
+                <input id="nameFilter" type="text" placeholder="nazwa postaci" onchange="activateFilters()">
+
+                <select name="status" id="status" onchange="activateFilters()">
+                    <option value="unchosen">unchosen</option>
+                    <option value="alive">Alive</option>
+                    <option value="dead">Dead</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+
+                <input type="checkbox" id="male" name="gender" onchange="activateFilters()">
+                <label for="male">Mężczyzna</label>
+                <input type="checkbox" name="gender" id="female" onchange="activateFilters()">
+                <label for="female">Kobieta</label>
+                <input type="checkbox" name="gender" id="genderless" onchange="activateFilters()">
+                <label for="genderless">Bez-płciowy</label>
+                <input type="checkbox" name="gender" id="gender-unknown" onchange="activateFilters()">
+                <label for="gender-unknown">płeć nieznana</label>
+                
+                <div class="pagesInfo">
+                    <input type="text" id="page" value="1" onchange="displayRequest()">
+                    <label id="pageId" for="page">asd</label>
+                </div>
+                <!-- <input type="range" placeholder="status">
+                <input type="checkbox" placeholder="płeć"> -->
+            </div>
+            <div class="charList">
+                <div class="singleChar"></div>
+            </div>
+        </div>
+    </body>
+</html>
