@@ -1,2 +1,2 @@
-# Devstock.rickAndMorty
+# DevstockRickAndMorty
 solution for javascript task
