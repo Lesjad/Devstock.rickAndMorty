@@ -6,15 +6,21 @@ body {
     text-align: center;
 }
 
+.pagesInfo input {
+    max-width: 40px;
+    text-align: center;
+}
+
+
 .charsDisplayInfo {
     display: inline-block;
     font-family: fantasy;
     font-size: x-large;
 }
 
-.singleChar {
+.charListContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .singleCharacter {

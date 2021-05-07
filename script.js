@@ -114,12 +114,34 @@ function sortArr() {
     } else if (chosenType == "byGender") {
         sortByGender();
     } else {
-        throw "to jest błąd listy"
+        throw "wrong sort selection"
     }
 }
 
 function displayRequest() {
     display((document.getElementById("page").value - 1) * dispRange, dispRange)
+}
+
+function nextPage(){
+    let currPage=document.getElementById("page").value;
+
+    if (currPage==Math.ceil(charactersArray.length / dispRange)) {
+        return;
+    } else {
+        document.getElementById("page").value=parseInt(currPage)+1;
+        displayRequest();
+    }
+}
+
+function previousPage(){
+    let currPage=document.getElementById("page").value;
+
+    if (currPage<=1) {
+        return;
+    } else {
+        document.getElementById("page").value=parseInt(currPage)-1;
+        displayRequest();
+    }
 }
 
 //display - used to refresh the view everytime the content changes
@@ -151,6 +173,42 @@ function display(startIndex, range) {
     }
 }
 
+function dispChange(){
+    let chars=document.getElementById("idCharListContainer");
+    let singleChars=document.getElementsByClassName("singleCharacter")
+
+    if (chars.style.flexDirection==""){
+        console.log();
+        let attrFlexDirection=document.createAttribute("style");
+        attrFlexDirection.value="flex-direction:row";
+    
+        chars.setAttributeNode(attrFlexDirection); 
+
+        for (i=0; i<singleChars.length; i++){
+            attrFlexDirection=document.createAttribute("style");
+            attrFlexDirection.value="flex-direction:row";
+            singleChars[i].setAttributeNode(attrFlexDirection);
+        }
+        // singleChars.elements.forEach(element => {
+        //     element.setAttributeNode(attrFlexDirection);
+        // });
+
+    }
+
+    // chars.setAttribute("flex-direction", "column");
+    
+    if (chars.style.flexDirection=="column"){
+        chars.style.flexDirection="row";
+        for (i=0; i<singleChars.length; i++){
+            singleChars[i].style.flexDirection="row"
+        }
+    } else if (chars.style.flexDirection=="row"){
+        chars.style.flexDirection="column";
+        for (i=0; i<singleChars.length; i++){
+            singleChars[i].style.flexDirection="column"
+        }
+    }
+}
 function appendChildElement(parentId, childType, childID, childClass, childEventName, childEventValue) {
     let parentElement = document.getElementById(parentId);
     let childElement = document.createElement(childType);
@@ -209,8 +267,7 @@ async function showDetails(id) {
     let charDetails=await fetchQuery("character/"+id);
 
     let x=document.getElementById("detailChar"+id+"Display");
-    if (x){
-        
+    if (x){   
         x.remove();
     } else{
         parentElement.innerHTML+='<div class="detailCharDisplay" id="detailChar'+id+'Display" onclick="hideDetails()">' +

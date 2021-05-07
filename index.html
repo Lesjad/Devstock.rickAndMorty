@@ -17,17 +17,25 @@
 
         <div class="dislayOptionsBar">
 
-            <div>Sortuj po:</div>
-            <select id="sortType" onchange="sortArr()">
-                <option value="byId">ID</option>
-                <option value="byName">nazwa</option>
-                <option value="byDate">data utworzenia</option>
-                <option value="byGender">płci</option>
-            </select>
 
-            <div id="navigationBar">filtry:
+            <section id="sortSection">
+                <label for="sortType">sortuj według: </label>
+                <select id="sortType" onchange="sortArr()">
+                    <option value="byId">ID</option>
+                    <option value="byName">nazwa</option>
+                    <option value="byDate">data utworzenia</option>
+                    <option value="byGender">płci</option>
+                </select>    
+            </section>
+
+            <button id="dispChangeButton" onclick="dispChange()">zmień widok</button>
+
+            <section id="navigationBar">
+            <hr>
+                <!-- <label for="navigationBar">filtry: </label> -->
                 <input id="nameFilter" type="text" placeholder="nazwa postaci" onchange="activateFilters()">
 
+                <label for="status">status: </label>
                 <select name="status" id="status" onchange="activateFilters()">
                     <option value="unchosen">unchosen</option>
                     <option value="alive">Alive</option>
@@ -35,25 +43,31 @@
                     <option value="unknown">Unknown</option>
                 </select>
 
-                <input type="checkbox" id="male" name="gender" onchange="activateFilters()">
-                <label for="male">Mężczyzna</label>
-                <input type="checkbox" name="gender" id="female" onchange="activateFilters()">
-                <label for="female">Kobieta</label>
-                <input type="checkbox" name="gender" id="gender-unknown" onchange="activateFilters()">
-                <label for="gender-unknown">płeć nieznana</label>
-                <input type="checkbox" name="gender" id="genderless" onchange="activateFilters()">
-                <label for="genderless">Bez-płciowy</label>
+                <section id="genderSection">
+                    <label for="genderSection">Płeć: </label>
+
+                    <input type="checkbox" id="male" name="gender" onchange="activateFilters()">
+                    <label for="male">Mężczyzna</label>
+                    <input type="checkbox" name="gender" id="female" onchange="activateFilters()">
+                    <label for="female">Kobieta</label>
+                    <input type="checkbox" name="gender" id="gender-unknown" onchange="activateFilters()">
+                    <label for="gender-unknown">płeć nieznana</label>
+                    <input type="checkbox" name="gender" id="genderless" onchange="activateFilters()">
+                    <label for="genderless">Bez-płciowy</label>    
+                </section>
 
                 <div class="pagesInfo">
+                    <button class="pageNav" onclick="previousPage()" ><</button>
                     <input type="text" id="page" value="" onchange="displayRequest()">
-                    <label id="pageId" for="page">asd</label>
+                    <button class="pageNav" onclick="nextPage()" >></button>
+                    <label id="pageId" for="page"></label>
                 </div>
-            </div>
+            </section>
         </div>
         <div class="charListContainer" id="idCharListContainer">
         </div>
     </div>
-    <div id="testDiv">jakis content</div>
+    <!-- <div id="testDiv">jakis content</div> -->
 </body>
 
 </html>
