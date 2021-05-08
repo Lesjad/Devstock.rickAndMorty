@@ -1,0 +1,8 @@
+.charListContainer{
+    flex-direction: column;
+    width: fit-content;
+}
+
+.singleCharacter {
+    flex-direction: column;
+}

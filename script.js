@@ -17,7 +17,7 @@ async function fillArrWith(userQuery) {
         try {
             myQuery = myObject.info.next;
         } catch (error) {
-            window.alert("Brak postaci do wyświetlenia\nZmień filtry");
+            window.alert("Brak postaci do wyświetlenia\nSerwer nie odpowieada lub Zmień filtry");
             // document.getElementById("nameFilter").value="";
             break;
         }
@@ -174,41 +174,17 @@ function display(startIndex, range) {
 }
 
 function dispChange(){
-    let chars=document.getElementById("idCharListContainer");
-    let singleChars=document.getElementsByClassName("singleCharacter")
+    console.log(document.styleSheets[0]);
+    let secStyle=document.getElementById("secStyleId").getAttribute("href");
 
-    if (chars.style.flexDirection==""){
-        console.log();
-        let attrFlexDirection=document.createAttribute("style");
-        attrFlexDirection.value="flex-direction:row";
-    
-        chars.setAttributeNode(attrFlexDirection); 
-
-        for (i=0; i<singleChars.length; i++){
-            attrFlexDirection=document.createAttribute("style");
-            attrFlexDirection.value="flex-direction:row";
-            singleChars[i].setAttributeNode(attrFlexDirection);
-        }
-        // singleChars.elements.forEach(element => {
-        //     element.setAttributeNode(attrFlexDirection);
-        // });
-
+    if (secStyle) {
+        document.getElementById("secStyleId").setAttribute("href", "")
+    } else {
+        document.getElementById("secStyleId").setAttribute("href", "./style-column.css")
     }
-
-    // chars.setAttribute("flex-direction", "column");
-    
-    if (chars.style.flexDirection=="column"){
-        chars.style.flexDirection="row";
-        for (i=0; i<singleChars.length; i++){
-            singleChars[i].style.flexDirection="row"
-        }
-    } else if (chars.style.flexDirection=="row"){
-        chars.style.flexDirection="column";
-        for (i=0; i<singleChars.length; i++){
-            singleChars[i].style.flexDirection="column"
-        }
-    }
+    console.log(document.styleSheets);
 }
+
 function appendChildElement(parentId, childType, childID, childClass, childEventName, childEventValue) {
     let parentElement = document.getElementById(parentId);
     let childElement = document.createElement(childType);
