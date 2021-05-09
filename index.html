@@ -21,23 +21,28 @@
 
             <section id="sortSection">
                 <label for="sortType">sortuj według: </label>
-                <select id="sortType" onchange="sortArr()">
+                <select id="sortType">
                     <option value="byId">ID</option>
                     <option value="byName">nazwa</option>
                     <option value="byDate">data utworzenia</option>
                     <option value="byGender">płci</option>
-                </select>    
+                </select>
             </section>
 
-            <button id="dispChangeButton" onclick="dispChange()">zmień widok</button>
+            <button id="dispChangeButton">zmień widok</button>
 
+            <br>
+            <label for="itemsOnPageId">Na jednej stronie wyświetl: </label>
+            <input id="itemsOnPageId" type="text" value="">
+            <label for="itemsOnPageId">postaci</label>
+            
             <section id="navigationBar">
-            <hr>
+                <hr>
                 <!-- <label for="navigationBar">filtry: </label> -->
-                <input id="nameFilter" type="text" placeholder="nazwa postaci" onchange="activateFilters()">
+                <input id="nameFilter" type="text" placeholder="nazwa postaci">
 
                 <label for="status">status: </label>
-                <select name="status" id="status" onchange="activateFilters()">
+                <select name="status" id="status">
                     <option value="unchosen">unchosen</option>
                     <option value="alive">Alive</option>
                     <option value="dead">Dead</option>
@@ -47,20 +52,20 @@
                 <section id="genderSection">
                     <label for="genderSection">Płeć: </label>
 
-                    <input type="checkbox" id="male" name="gender" onchange="activateFilters()">
+                    <input type="checkbox" id="male" name="gender">
                     <label for="male">Mężczyzna</label>
-                    <input type="checkbox" name="gender" id="female" onchange="activateFilters()">
+                    <input type="checkbox" name="gender" id="female">
                     <label for="female">Kobieta</label>
-                    <input type="checkbox" name="gender" id="gender-unknown" onchange="activateFilters()">
+                    <input type="checkbox" name="gender" id="gender-unknown">
                     <label for="gender-unknown">płeć nieznana</label>
-                    <input type="checkbox" name="gender" id="genderless" onchange="activateFilters()">
-                    <label for="genderless">Bez-płciowy</label>    
+                    <input type="checkbox" name="gender" id="genderless">
+                    <label for="genderless">Bez-płciowy</label>
                 </section>
 
                 <div class="pagesInfo">
-                    <button class="pageNav" onclick="previousPage()" ><</button>
-                    <input type="text" id="page" value="" onchange="displayRequest()">
-                    <button class="pageNav" onclick="nextPage()" >></button>
+                    <button class="pageNav" id="prevPageButtonId"><</button>
+                    <input type="text" id="page" value="">
+                    <button class="pageNav" id="nextPageButtonId">></button>
                     <label id="pageId" for="page"></label>
                 </div>
             </section>
